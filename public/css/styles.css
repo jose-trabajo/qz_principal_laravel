@@ -1,18 +1,23 @@
 .menu-hamburguesa {
     position: fixed;
     top: 20px;
-    left: 20px;
-    z-index: 50;
+    right: 20px;
+    z-index: 1000;
 }
+
 .menu-hamburguesa input {
     display: none;
 }
+
 .menu-hamburguesa label {
     display: block;
     width: 30px;
     height: 30px;
     cursor: pointer;
+    z-index: 1001;
+    position: relative;
 }
+
 .menu-hamburguesa label span {
     display: block;
     width: 100%;
@@ -21,23 +26,43 @@
     margin: 6px 0;
     transition: 0.4s;
 }
-.menu-hamburguesa input:checked + label + .menu {
-    transform: translateX(0);
-}
+
 .menu {
     position: fixed;
     top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    padding-top: 80px;
     transition: 0.4s;
-    padding: 60px 20px;
 }
+
 .menu a {
     display: block;
+    padding: 15px 30px;
     color: white;
     text-decoration: none;
-    margin: 20px 0;
-    font-size: 18px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#menu-toggle:checked ~ .menu {
+    right: 0;
+}
+
+#menu-toggle:checked + label span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+#menu-toggle:checked + label span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + label span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
